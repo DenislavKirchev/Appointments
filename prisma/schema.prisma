@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id              Int      @id @default(autoincrement())
+  email           String   @unique
+  password        String?
+  first_name      String?
+  last_name       String?
+  role            String?
+  phone_number    String?
+  doctor          doctor?
+  patient         patient?
+  city_id         Int?
+  city            city?    @relation(fields: [city_id], references: [id])
+}
+
+model patient {
+  id                  Int       @id @default(autoincrement())
+  user_id             Int       @unique
+  gender              String?
+  egn                 String?
+  age                 String?
+  user                user      @relation(fields: [user_id], references: [id])
+}
+
+model doctor {
+  id               Int          @id @default(autoincrement())
+  user_id          Int          @unique
+  speciality_id    Int
+  speciality       speciality   @relation(fields: [speciality_id], references: [id])
+  hospital_id      Int
+  hospital         hospital     @relation(fields: [hospital_id], references: [id])
+  user             user         @relation(fields: [user_id], references: [id])
+}
+
+model hospital {
+  id               Int       @id @default(autoincrement())
+  name             String?
+  address          String?
+  city_id          Int
+  city             city      @relation(fields: [city_id], references: [id])
+  doctors          doctor[]
+}
+
+model city {
+  id               Int       @id @default(autoincrement())
+  name             String?
+  hospitals        hospital[]
+  users            user[]
+}
+
+model speciality {
+  id               Int       @id @default(autoincrement())
+  name             String?
+  doctors          doctor[]
+}
+
