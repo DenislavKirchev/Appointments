@@ -1,0 +1,193 @@
+.container {
+    padding: 36px 32px 32px 18px;
+    height: 92%;
+  }
+  
+  .titleSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .pageTitle {
+    color: #111d34;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 16px;
+    margin-left: 65px;
+  }
+  
+  .pageSubtitle {
+    color: #111d34;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    margin-left: 65px;
+  }
+  
+  .divider {
+    height: 3px;
+    margin: 26px 0;
+    background: radial-gradient(#ddd, #f7f7f7);
+    border: none;
+  }
+  
+  .searchField {
+    height: 50px;
+    width: 424px;
+  }
+  
+  .searchField input {
+    padding: 13px;
+  }
+  
+  .searchField input::placeholder {
+    font-size: 14px;
+    color: #9da8b4;
+    font-weight: 400;
+    opacity: 1;
+  }
+  
+  .customInput {
+    border-radius: 10px;
+    background-color: #fff;
+    height: 50px;
+  }
+  
+  .issueDateFilter {
+    width: 190px;
+  }
+  
+  .customInputLabel {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 1;
+    line-height: normal;
+  }
+  
+  .filtersSection {
+    flex-direction: row;
+    gap: 12px;
+    margin: 10px 0 22px 0;
+  }
+  
+  .filters {
+    flex-direction: row;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .selectedFiltersSection {
+    flex-direction: row;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .selectedFilterText {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #111d34;
+  }
+  
+  .selectedFilter {
+    border-radius: 4px;
+    background: #ededed;
+    display: flex;
+    padding: 10px 16px;
+    gap: 14px;
+  }
+  
+  .selectedFilterRemoveButton {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .filterButtons {
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    gap: 12px;
+    flex-grow: 1;
+  }
+  
+  .filterButtonsInner {
+    flex-direction: row;
+    gap: 12px;
+  }
+  
+  .allFiltersButton {
+    padding: 15px 12px;
+  }
+  
+  .allFiltersButton p {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+  
+  .statusFilter {
+    width: 190px;
+  }
+  
+  .localisationFilter {
+    width: 170px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    background: #fff;
+    padding: 16px;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .tableHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    align-items: center;
+    height: 62px;
+    padding-left: 22px;
+    gap: 8px;
+    border: none;
+    margin-bottom: 24px;
+  }
+  
+  .tableHeader th {
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    @media (max-width: 1400px) {
+      padding: 16px 10px;
+      font-size: 14px;
+    }
+  }
+  
+  .tableHeader th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .tableHeader th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .selected {
+    border-radius: 100px;
+    background: var(--Primary, #0068ff) !important;
+    color: #ffffff;
+  }

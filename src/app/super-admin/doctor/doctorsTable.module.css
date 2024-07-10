@@ -1,0 +1,57 @@
+.id {
+    font-size: 16px;
+  }
+  
+  .issueDate {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .localisation {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .patient {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .contact {
+    font-size: 16px;
+  }
+  
+  .buttonsCell {
+    display: flex;
+  }
+  
+  .buttonsBox {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+  }
+  
+  .buttonsSection {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+  
+    @media (max-width: 1620px) {
+      display: none;
+    }
+  }
+  
+  .threeDotsButton {
+    display: none;
+  
+    @media (max-width: 1620px) {
+      display: flex;
+    }
+  }
+  
+  .row td {
+    @media (max-width: 1400px) {
+      padding: 20px 3px 3px 3px;
+      font-size: 14px;
+    }
+  }

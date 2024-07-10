@@ -3,8 +3,7 @@ import Grid from "@mui/material/Grid";
 import { Filters, getAllCities, getAllDoctors, getAllHospitals, getAllSpecialities } from "./data";
 import { MedicalSpecialists } from "./DoctorsList";
 
-
-export default async function PatientPage({
+export default async function DoctorPage({
   searchParams
 }: {
   searchParams: Partial<Filters>;

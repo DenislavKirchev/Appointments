@@ -1,0 +1,15 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalContainer {
+    width: 708px;
+    padding: 2rem 2.5rem; /* 32px 40px */
+    gap: 1.5rem; /* 24px */
+    border-radius: 0.625rem; /* 10px */
+    outline: 0;
+    background: #fff;
+  }
+  

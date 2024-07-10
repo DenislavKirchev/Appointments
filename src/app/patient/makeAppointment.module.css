@@ -1,0 +1,143 @@
+.container {
+    margin: 10px;
+    
+  }
+  
+  .root {
+    padding: 36px 32px 32px 60px;
+  }
+  
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button {
+    margin-right: 16px;
+  }
+  
+  .buttonSection {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .button {
+    margin-left: 10px;
+  }
+  
+  .modalContainer {
+    width: 50%;
+    padding: 32px 40px;
+    gap: 24px;
+    border-radius: 10px;
+    outline: 0;
+    background: #fff;
+  }
+  
+  .closeImage {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 24px;
+  }
+  
+  .modalTitle {
+    color: #111d34;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+  
+  .modalLabel {
+    color: #102530;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .modalTextField {
+    height: 44px;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+  
+  .modalTextField div {
+    border-radius: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--Primary-Light-1, #dfe9ee);
+    background: var(--White, #fff);
+  }
+  
+  .modalTextField label {
+    color: var(--primary-icons-nav, #9da8b4);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  
+  .modalButtonSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 8px;
+  }
+  
+  .closeButton {
+    color: #5e6871;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    height: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 13px 24px;
+  }
+  
+  .closeButton:hover {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+  .continieButton {
+    color: #f4f4f4;
+    display: flex;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 13px 24px;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    gap: 12px;
+    border-radius: 10px;
+    background: #0068ff;
+  }
+  
+  .continieButton:hover {
+    background: #0055cc;
+  }
+  
+  .continieButton:disabled {
+    display: inline-flex;
+    height: 50px;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 2px solid #d6d7db;
+    background: none;
+  }
