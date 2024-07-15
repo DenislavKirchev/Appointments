@@ -30,19 +30,13 @@ export const SideBar = () => {
         </Grid>
         <Divider className={styles.divider} />
         <div className={styles.nav}>
-          <Link href={"/doctor"}>Начало</Link>
-        </div>
-        <div className={styles.nav}>
           <Link href={"/super-admin/doctor"}>Medical specialists</Link>
         </div>
         <div className={styles.nav}>
           <Link href={"/super-admin/hospital"}>Hospitals</Link>
         </div>
         <div className={styles.nav}>
-          <Link href={"/doctor/lab-cards"}>Лаборатории</Link>
-        </div>
-        <div className={styles.nav}>
-          <Link href={"/doctor/documents"}>Документи</Link>
+          <Link href={"/super-admin/speciality"}>Specialities</Link>
         </div>
       </div>
 
@@ -60,25 +54,8 @@ export const SideBar = () => {
         </div>
 
         <Divider className={styles.divider} />
-        {/* <div className={styles.info}>
-          <Link href={"/doctor/profile"}>
-            <Grid container className={styles.info}>
-              <Image
-                src="/user.svg"
-                alt="User"
-                className={styles.homeIcon}
-                width={24}
-                height={24}
-              />
-              <p>
-                {user.first_name} {user.last_name}
-              </p>
-            </Grid>
-          </Link>
-        </div> */}
-
-        {/* <Divider className={styles.divider} />
-        <button
+        
+        {/* <button
           onClick={() => signOut({ callbackUrl: "/", redirect: true })}
           className={styles.signOut}
         >
@@ -90,7 +67,7 @@ export const SideBar = () => {
             height={24}
           />
           <p>Изход</p>
-        </button> */}
+        </button>  */}
       </div>
     </div>
   );

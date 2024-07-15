@@ -7,15 +7,6 @@ export const MedicalSpecialistsTable = ({
 }: {
   medicalSpecialist: any;
 }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const openCreateMedicalSpecialistModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeCreateMedicalSpecialistModal = () => {
-    setIsOpen(false);
-  };
 
   return (
     <TableRow

@@ -5,8 +5,6 @@ import {
   Divider,
   Grid,
   IconButton,
-  Pagination,
-  PaginationItem,
   Stack,
   Table,
   TableBody,
