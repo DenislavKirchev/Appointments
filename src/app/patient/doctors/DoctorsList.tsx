@@ -115,12 +115,6 @@ export const MedicalSpecialists = ({
       <Stack className={styles.container}>
         <Grid className={styles.titleSection}>
           <Typography className={styles.pageTitle}>Medical specialists</Typography>
-          {/* <CustomButton
-            text={"Добави лекар"}
-            variant={"filled"}
-            icon={plus}
-            onClick={openCreateMedicalSpecialistModal}
-          /> */}
         </Grid>
         <Divider className={styles.divider} />
         <Stack className={styles.filtersSection}>

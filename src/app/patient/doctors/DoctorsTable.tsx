@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, Stack, TableCell, TableRow } from "@mui/material";
+import { Button, TableCell, TableRow } from "@mui/material";
 import styles from "./doctorsTable.module.css";
 import MakeAppointmentModal from "./MakeAppointmentModal";
 
@@ -50,8 +50,8 @@ export const MedicalSpecialistsTable = ({
       </Button>
       </TableCell>
       {isOpen && (
-          <MakeAppointmentModal isOpen={isOpen} onClose={closeCreateMedicalSpecialistModal} />
-        )}
+          <MakeAppointmentModal doctorId={medicalSpecialist.user_id} isOpen={isOpen} onClose={closeCreateMedicalSpecialistModal} />
+      )}
     </TableRow>
   );
 };

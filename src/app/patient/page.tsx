@@ -1,30 +1,15 @@
 "use server";
-import Grid from "@mui/material/Grid";
-import { Filters, getAllCities, getAllDoctors, getAllHospitals, getAllSpecialities } from "./data";
-import { MedicalSpecialists } from "./DoctorsList";
+import { getAppointmentsForPatient } from "./data";
+import AppointmentCard from "./AppointmentCard";
 
-
-export default async function PatientPage({
-  searchParams
-}: {
-  searchParams: Partial<Filters>;
-}) {
-
-  const doctors = await getAllDoctors({
-    filters: { ...searchParams }
-  });
-  const cities = await getAllCities();
-  const hospitals = await getAllHospitals();
-  const specialities = await getAllSpecialities();
+export default async function PatientPage() {
+  const appointments = await  getAppointmentsForPatient(6);
 
   return (
-    <Grid>
-    <MedicalSpecialists
-      doctors={doctors}
-      specialities={specialities}
-      cities={cities}
-      hospitals={hospitals}
-    />
-    </Grid>
+      <div className="appointments-list">
+        {appointments.map((appointment) => (
+          <AppointmentCard key={appointment.id} appointment={appointment} />
+        ))}
+      </div>
   );
 }

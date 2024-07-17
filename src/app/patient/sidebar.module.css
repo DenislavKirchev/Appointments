@@ -1,0 +1,142 @@
+.sidebarOpened {
+    background: var(--White, #fff);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.03);
+    overflow-x: hidden;
+    color: #333;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 16%;
+  }
+  
+  .sidebarClosed {
+    background: var(--White, #fff);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.03);
+    overflow-x: hidden;
+    color: #333;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 4%;
+  }
+  
+  .sidebarOpened a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    @media (max-width: 1500px) {
+      margin-bottom: 00px;
+    }
+  }
+  
+  .navLogo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-left: 10px;
+    padding-top: 8px;
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  
+  .signOut {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: none;
+  }
+  
+  .navIcon {
+    margin-left: 20px;
+  }
+  
+  .divider {
+    margin: 6px 0px;
+  }
+  
+  .infoSection {
+    display: flex;
+    width: "100%";
+    flex-direction: column;
+    padding: 0 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #f4f4f4;
+    border-radius: 16px;
+  }
+  
+  .closeMenuIcon {
+    display: flex;
+    width: 18px;
+    height: 18px;
+    padding: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #0068ff;
+    cursor: pointer;
+  }
+  
+  .closeMenuIconContainer {
+    position: absolute;
+    left: 15%;
+    top: 7%;
+  }
+  
+  .openMenuIconContainer {
+    position: absolute;
+    left: 3%;
+    top: 6%;
+  }
+  
+  .iconContainer {
+    display: flex;
+    line-height: 56px;
+    padding-left: 20px;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
+  .spaceBetweenLines {
+    line-height: 36px;
+  }
+  
+  .logoutIcon {
+    margin-left: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .bottomButtonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .profileIcon {
+    margin-left: 16px;
+    width: 25px;
+    height: 25px;
+  }

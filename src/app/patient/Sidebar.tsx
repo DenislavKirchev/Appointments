@@ -31,13 +31,10 @@ export const SideBar = () => {
         </Grid>
         <Divider className={styles.divider} />
         <div className={styles.nav}>
-          <Link href={"/super-admin/doctor"}>Medical specialists</Link>
+          <Link href={"/patient"}>Appointments</Link>
         </div>
         <div className={styles.nav}>
-          <Link href={"/super-admin/hospital"}>Hospitals</Link>
-        </div>
-        <div className={styles.nav}>
-          <Link href={"/super-admin/speciality"}>Specialities</Link>
+          <Link href={"/patient/doctors"}>Medical specialists</Link>
         </div>
       </div>
 

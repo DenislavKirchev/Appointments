@@ -1,27 +1,25 @@
 import prisma from "@/lib/prisma";
 
-export async function getAppointmentsForPatient(patientId: number) {
+export async function getAppointmentsForDoctor(doctorId: number) {
   try {
     const appointments = await prisma.appointment.findMany({
       where: {
-        patient_id: patientId,
+        doctor_id: doctorId,
       },
     });
 
     // Manually join doctor information based on the doctor_id
     const detailedAppointments = await Promise.all(
       appointments.map(async (appointment) => {
-        const doctor = await prisma.doctor.findUnique({
-          where: { id: appointment.doctor_id },
+        const patient = await prisma.patient.findUnique({
+          where: { id: appointment.patient_id },
           include: {
             user: true,
-            speciality: true,
-            hospital: true,
           },
         });
         return {
           ...appointment,
-          doctor,
+          patient,
         };
       })
     );

@@ -68,3 +68,10 @@ model speciality {
   doctors          doctor[]
 }
 
+model appointment {
+  id               Int       @id @default(autoincrement())
+  doctor_id        Int
+  patient_id       Int
+  appointment_date DateTime
+  appointment_time String
+}
