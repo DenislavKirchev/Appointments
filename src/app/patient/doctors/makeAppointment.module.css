@@ -108,7 +108,7 @@
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
   }
   
-  .continieButton {
+  .continueButton {
     color: #f4f4f4;
     display: flex;
     font-family: "Inter", sans-serif;
@@ -125,11 +125,11 @@
     background: #0068ff;
   }
   
-  .continieButton:hover {
+  .continueButton:hover {
     background: #0055cc;
   }
   
-  .continieButton:disabled {
+  .continueButton:disabled {
     display: inline-flex;
     height: 50px;
     padding: 15px 24px;

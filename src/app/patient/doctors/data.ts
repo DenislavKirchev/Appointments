@@ -84,3 +84,20 @@ export async function getAllSpecialities() {
       console.log(error);
     }
 }
+
+export async function getAppointmentsForDoctor(doctorId: number) {
+  try {
+    const appointments = await prisma.appointment.findMany({
+      where: {
+        doctor_id: doctorId,
+      },
+    });
+
+    return appointments;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  } finally {
+    await prisma.$disconnect();
+  }
+}

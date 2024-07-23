@@ -45,7 +45,7 @@ export const MedicalSpecialistsTable = ({
       <TableCell className={styles.patient}>{medicalSpecialist.user.email}</TableCell>
       <TableCell className={styles.patient}>{medicalSpecialist.user.phone_number}</TableCell>
       <TableCell className={styles.buttonsCell} align={"right"}>
-      <Button onClick={openCreateMedicalSpecialistModal}>
+      <Button className={styles.continueButton} onClick={openCreateMedicalSpecialistModal}>
             Book
       </Button>
       </TableCell>
