@@ -11,6 +11,7 @@ interface CreateMedicalSpecialistModalProps {
   isOpen: boolean;
   onClose: () => void;
   doctorId: number;
+  patientId: number
 }
 
 interface Appointment {
@@ -51,6 +52,7 @@ enum AppointmentHours {
 const MakeAppointmentModal = ({
   isOpen,
   onClose,
+  patientId,
   doctorId
 }: CreateMedicalSpecialistModalProps) => {
   const today = new Date().toISOString().split('T')[0]; 
@@ -59,7 +61,7 @@ const MakeAppointmentModal = ({
 
   const formikMedicalSpecialistDetails = useFormik<any>({
     initialValues: {
-      patientId: 1,
+      patientId: patientId,
       appointment_date: "", 
       appointment_time: "",
     },

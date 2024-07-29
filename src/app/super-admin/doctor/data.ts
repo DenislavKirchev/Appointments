@@ -42,7 +42,6 @@ const generateWhereClause = (filters: Filters) => {
 
 export async function getAllDoctors({ filters }: { filters: Filters }) {
   const whereClause = generateWhereClause(filters);
-  console.log(whereClause);
   try {
       const doctors = await prisma.doctor.findMany({
           where: whereClause,

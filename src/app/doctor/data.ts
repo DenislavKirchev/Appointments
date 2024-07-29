@@ -1,10 +1,13 @@
 import prisma from "@/lib/prisma";
+import { auth } from "../authOptions";
 
-export async function getAppointmentsForDoctor(doctorId: number) {
+export async function getAppointmentsForDoctor() {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const session: any = await auth();
     const appointments = await prisma.appointment.findMany({
       where: {
-        doctor_id: doctorId,
+        doctor_id: session.user.id,
       },
     });
 

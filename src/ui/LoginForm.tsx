@@ -9,13 +9,14 @@ import { signinAction } from "@/lib/actions";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
+import { createPatient } from "@/app/login/actions";
 
 const validationSchema = yup.object({
   email: yup.string().required("Полето е задължително"),
   password: yup.string().required("Полето е задължително")
 });
 
-const SigninForm = () => {
+const LoginForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const router = useRouter();
   const formik = useFormik({
@@ -26,7 +27,7 @@ const SigninForm = () => {
     validationSchema: validationSchema,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSubmit: async (data: any) => {
-      await signinAction(data);
+      await createPatient(data);
     },
     validateOnMount: true,
     enableReinitialize: true
@@ -42,9 +43,6 @@ const SigninForm = () => {
         <Grid item xs={10}>
           <Grid className={styles.innerContainer}>
             <Typography className={styles.title}>My Doctor</Typography>
-            <Typography className={styles.subTitle}>
-              Enter your credentials to login to the My Doctor Platform
-            </Typography>
             <Grid className={styles.divider} />
             <Typography className={styles.modalLabel}>Email</Typography>
             <TextField
@@ -95,10 +93,10 @@ const SigninForm = () => {
               <Typography
                 className={styles.forgotPassword}
                 onClick={() => {
-                  router.push("/login");
+                  router.push("/auth/signin");
                 }}
               >
-                I have not a registration
+                I have a registration
               </Typography>
             </Stack>
           </Grid>
@@ -108,4 +106,4 @@ const SigninForm = () => {
   );
 };
 
-export default SigninForm;
+export default LoginForm;

@@ -8,6 +8,7 @@ export const {
   auth,
   signIn
 } = NextAuth({
+  secret: process.env.NEXT_PUBLIC_SECRET || "",
   pages: {
     signIn: "/auth/signin"
   },
@@ -44,6 +45,7 @@ export const {
     },
     async session({ session, token }: any) {
       session.user = token as any;
+      session.user.id = parseInt(session.user.id);
       return session;
     }
   }

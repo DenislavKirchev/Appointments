@@ -36,6 +36,9 @@ export const SideBar = () => {
         <div className={styles.nav}>
           <Link href={"/patient/doctors"}>Medical specialists</Link>
         </div>
+        <div className={styles.nav}>
+          <Link href={"/patient/data"}>My data</Link>
+        </div>
       </div>
 
       <div>

@@ -23,11 +23,13 @@ import styles from "./doctorsList.module.css";
 import { MedicalSpecialistsTable } from "./DoctorsTable";
 
 export const MedicalSpecialists = ({
+    patientId,
     doctors,
     cities,
     specialities,
     hospitals
   }: {
+    patientId: number,
     doctors: any;
     cities: any;
     specialities: any;
@@ -241,7 +243,7 @@ export const MedicalSpecialists = ({
             </TableHead>
             <TableBody>
               {doctors?.map((doctor: any, index: number) => (
-                <MedicalSpecialistsTable key={index} medicalSpecialist={doctor} />
+                <MedicalSpecialistsTable key={index} patientId={patientId} medicalSpecialist={doctor} />
               ))}
             </TableBody>
           </Table>

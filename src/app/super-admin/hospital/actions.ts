@@ -5,7 +5,6 @@ import { IHospitalFormik } from "./CreateHospital";
 
 export async function createHospital(hospitalData: IHospitalFormik) {
     try {
-        // Create a new hospital entry in the database
         const hospital = await prisma.hospital.create({
           data: {
             name: hospitalData.name,
@@ -14,10 +13,7 @@ export async function createHospital(hospitalData: IHospitalFormik) {
           },
         });
     
-        // Revalidate the specified path
         await revalidatePath('/super-admin');
-    
-        // Return the created hospital as a JSON string
         return JSON.stringify(hospital);
       } catch (error) {
         console.error('Error creating hospital:', error);

@@ -1,14 +1,16 @@
 import prisma from "@/lib/prisma";
+import { auth } from "../authOptions";
 
-export async function getAppointmentsForPatient(patientId: number) {
+export async function getAppointmentsForPatient() {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const session: any = await auth();
     const appointments = await prisma.appointment.findMany({
       where: {
-        patient_id: patientId,
+        patient_id: session.user.id,
       },
     });
 
-    // Manually join doctor information based on the doctor_id
     const detailedAppointments = await Promise.all(
       appointments.map(async (appointment) => {
         const doctor = await prisma.doctor.findUnique({
@@ -30,7 +32,5 @@ export async function getAppointmentsForPatient(patientId: number) {
   } catch (error) {
     console.log(error);
     throw error;
-  } finally {
-    await prisma.$disconnect();
-  }
+  } 
 }

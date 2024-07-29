@@ -4,8 +4,10 @@ import styles from "./doctorsTable.module.css";
 import MakeAppointmentModal from "./MakeAppointmentModal";
 
 export const MedicalSpecialistsTable = ({
+  patientId,
   medicalSpecialist
 }: {
+  patientId: number
   medicalSpecialist: any;
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -50,7 +52,7 @@ export const MedicalSpecialistsTable = ({
       </Button>
       </TableCell>
       {isOpen && (
-          <MakeAppointmentModal doctorId={medicalSpecialist.user_id} isOpen={isOpen} onClose={closeCreateMedicalSpecialistModal} />
+          <MakeAppointmentModal patientId={patientId} doctorId={medicalSpecialist.user_id} isOpen={isOpen} onClose={closeCreateMedicalSpecialistModal} />
       )}
     </TableRow>
   );
