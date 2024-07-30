@@ -6,7 +6,6 @@ import PatientData from "./PatientData";
 export default async function PatientDataPage() {
   const patientData = await getPatientData();
   const cities = await getAllCities();
-  console.log(patientData)
 
   return (
     <Grid>

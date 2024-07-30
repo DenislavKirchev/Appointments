@@ -2,19 +2,22 @@ import { SideBar } from "./Sidebar";
 import Grid from "@mui/material/Grid";
 import styles from "./layout.module.css";
 import { auth } from "../authOptions";
-import { redirect } from "next/navigation";
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const session: any = await auth();
 
   return (
-    <Grid container>
+    <Grid container width={"100%"} height={"100%"}>
       {session?.user.role === "super-admin" ? (
-        <Grid className={styles.layoutInnerContainer}>
+        <div className={styles.container}>
           <SideBar />
-          <Grid className={styles.content}>{children}</Grid>
-        </Grid>
+          {children}
+        </div>
       ) : (
         <div>You are not authorized to access this page</div>
       )}

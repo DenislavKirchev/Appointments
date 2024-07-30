@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useFormik } from "formik";
-import { updatePatient } from "./actions";
+import { updateDoctor } from "./actions";
 import { CustomTextInput } from "@/ui/CustomTextInput";
 import {
   Button,
@@ -14,25 +14,38 @@ import {
   InputAdornment,
   TextField,
 } from "@mui/material";
-import styles from "./patientData.module.css";
+import styles from "./doctorData.module.css";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-interface IPatientForm {
-  cities: ICity[];
-  patientData: {
-    user: {
-      email: string;
-      password: string | null;
-      first_name: string | null;
-      last_name: string | null;
-      phone_number: string | null;
-      city_id: number | null;
-    };
-    gender: string;
-    egn: string;
-    age: string;
-  };
+interface User {
+  id: number;
+  email: string;
+  password: string | null;
+  first_name: string | null;
+  last_name: string | null;
+  role: string | null;
+  phone_number: string | null;
+  city_id: number | null;
+}
+
+interface Speciality {
+  id: number;
+  name: string | null;
+}
+
+interface DoctorData {
+  id: number;
+  user_id: number;
+  speciality_id: number;
+  hospital_id: number;
+  user: User;
+  speciality: Speciality;
+}
+
+interface IHospital {
+  id: number;
+  name: string | null;
 }
 
 interface ICity {
@@ -40,34 +53,36 @@ interface ICity {
   name: string | null;
 }
 
-export interface IPatientFormik {
+interface DoctorDataProps {
+  doctorData: DoctorData;
+  cities: ICity[];
+  hospitals: IHospital[];
+}
+
+export interface IDoctorFormik {
   email: string;
   password: string;
   firstName: string;
   lastName: string;
   cityId: number;
+  hospitalId: number;
   phoneNumber: string;
-  gender: string;
-  egn: string;
-  age: string;
 }
 
-const PatientData = ({ cities, patientData }: IPatientForm) => {
+const DoctorData = ({ cities, hospitals, doctorData }: DoctorDataProps) => {
   const [showPassword, setShowPassword] = React.useState(false);
-  const formik = useFormik<IPatientFormik>({
+  const formik = useFormik<IDoctorFormik>({
     initialValues: {
-      email: patientData.user.email,
-      password: patientData.user.password!,
-      firstName: patientData.user.first_name!,
-      lastName: patientData.user.last_name!,
-      cityId: patientData.user.city_id ? patientData.user.city_id : 0,
-      phoneNumber: patientData.user.phone_number!,
-      gender: patientData.gender,
-      egn: patientData.egn,
-      age: patientData.age,
+      email: doctorData.user.email,
+      password: doctorData.user.password!,
+      firstName: doctorData.user.first_name!,
+      lastName: doctorData.user.last_name!,
+      cityId: doctorData.user.city_id ? doctorData.user.city_id : 0,
+      phoneNumber: doctorData.user.phone_number!,
+      hospitalId: doctorData.hospital_id ? doctorData.hospital_id : 0,
     },
-    onSubmit: async (data: IPatientFormik) => {
-      await updatePatient(data);
+    onSubmit: async (data: IDoctorFormik) => {
+      await updateDoctor(data);
     },
   });
 
@@ -162,15 +177,14 @@ const PatientData = ({ cities, patientData }: IPatientForm) => {
           />
         </Grid>
         <Grid item xs={6}>
-          <CustomTextInput
-            label="egn"
-            value={formik.values.egn}
-            onChange={(e) => {
-              formik.handleChange(e);
+        <CustomTextInput
+            label="Speciality"
+            value={doctorData.speciality.name!}
+            onChange={() => {
             }}
-            onBlur={formik.handleBlur}
-            name="egn"
-            type="egn"
+            disabled={true}
+            name="speciality"
+            type="speciality"
           />
         </Grid>
       </Grid>
@@ -199,31 +213,31 @@ const PatientData = ({ cities, patientData }: IPatientForm) => {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-          <CustomTextInput
-            label="Age"
-            value={formik.values.age}
-            onChange={(e) => {
-              formik.handleChange(e);
-            }}
-            onBlur={formik.handleBlur}
-            name="age"
-            type="age"
-          />
+        <Typography>Hospital</Typography>
+          <FormControl fullWidth>
+            <Select
+              labelId="hospital-label"
+              id="hospitalId"
+              name="hospitalId"
+              value={formik.values.hospitalId}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <MenuItem value="" disabled>
+                Select a hospital
+              </MenuItem>
+              {hospitals.map((hospital) => (
+                <MenuItem key={hospital.id} value={hospital.id}>
+                  {hospital.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
       </Grid>
 
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <CustomTextInput
-            label="Gender"
-            value={formik.values.gender}
-            onChange={(e) => {
-              formik.handleChange(e);
-            }}
-            onBlur={formik.handleBlur}
-            name="gender"
-            type="gender"
-          />
         </Grid>
       </Grid>
 
@@ -234,4 +248,4 @@ const PatientData = ({ cities, patientData }: IPatientForm) => {
   );
 };
 
-export default PatientData;
+export default DoctorData;
