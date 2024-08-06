@@ -1,0 +1,427 @@
+.container {
+    padding: 1.5rem;
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    container-type: inline-size;
+    container-name: innerContainer;
+  }
+  
+  @container innerContainer (max-width: 84%) {
+    .container {
+      width: 84%;
+    }
+  }
+  .titleSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .pageTitle {
+    color: #111d34;
+    font-size: 1.75rem; /* 28px */
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 2rem; /* 32px */
+  }
+  
+  .pageSubtitle {
+    color: #111d34;
+    font-size: 1.25rem; /* 20px */
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    margin-left: 2rem; /* 32px */
+  }
+  
+  .divider {
+    height: 3px;
+    margin: 1.25rem 0; /* 20px 0*/
+    background: radial-gradient(#ddd, #f7f7f7);
+    border: none;
+  }
+  
+  .searchField {
+    height: 3.125rem; /* 50px */
+    width: 17.5rem; /* 280px */
+  
+    @media (max-width: 1300px) {
+      width: 9rem; /* 154px */
+    }
+  
+    @media (min-width: 1300px) and (max-width: 1500px) {
+      width: 12.5rem; /* 200px */
+    }
+  }
+  
+  .searchField input {
+    padding: 0.875rem; /* 14px */
+  
+    @media (max-width: 1300px) {
+      padding: 0.125rem; /* 2px */
+    }
+  }
+  
+  .searchField input::placeholder {
+    font-size: 0.875rem; /* 14px */
+    color: #9da8b4;
+    font-weight: 400;
+    opacity: 1;
+  }
+  
+  .customInput {
+    border-radius: 10px;
+    background-color: #fff;
+    height: 3.125rem; /* 50px */
+  }
+  
+  .issueDateFilter {
+    width: 11.875rem; /* 190px */
+  }
+  
+  .customInputLabel {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400;
+    opacity: 1;
+    line-height: normal;
+  }
+  
+  .filtersSection {
+    flex-direction: row;
+    gap: 0.75rem; /* 12px */
+    margin: 0.625rem 0rem 0.375rem 0rem; /* 10px 0 6px 0 */
+  }
+  
+  .filters {
+    flex-direction: row;
+    gap: 1rem; /* 12px */
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .selectedFiltersSection {
+    flex-direction: row;
+    gap: 1rem; /* 16px */
+    margin: 0.5rem 0 1.25rem 0;
+  }
+  
+  .selectedFilterText {
+    font-size: 0.875rem; /* 14px */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #111d34;
+  }
+  
+  .selectedFilter {
+    border-radius: 4px;
+    background: #ededed;
+    display: flex;
+    padding: 0.625rem 1rem; /* 10px 16px */
+    gap: 0.875rem; /* 14px */
+  }
+  
+  .selectedFilterRemoveButton {
+    display: flex;
+    height: 1.25rem; /* 20px */
+    width: 1.25rem; /* 20px */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .filterButtons {
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
+    gap: 0.75rem; /* 12px */
+    flex-grow: 1;
+  }
+  
+  .filterButtonsInner {
+    flex-direction: row;
+    gap: 0.75rem; /* 12px */
+    justify-content: flex-end;
+  }
+  
+  .allFiltersButton {
+    padding: 0.75rem 1rem; /* 12px 16px */
+  }
+  
+  .allFiltersButton p {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+  
+  .columnFilter {
+    width: 10rem; /* 160px */
+  
+    @media (max-width: 1300px) {
+      width: 6.5rem; /* 100px */
+    }
+    @media (min-width: 1300px) and (max-width: 1500px) {
+      width: 8.125rem !important; /* 134px */
+    }
+  }
+  
+  .localisationFilter {
+    width: 10.625rem; /* 170px */
+  
+    @media (max-width: 1550px) {
+      width: 8.25rem !important; /* 134px */
+    }
+  }
+  
+  .methodFilter {
+    width: 10rem; /* 160px */
+  
+    @media (max-width: 1550px) {
+      width: 7.25rem !important; /* 116px */
+    }
+  }
+  
+  .biomarkerFilter {
+    width: 10rem; /* 160px */
+  
+    @media (max-width: 1550px) {
+      width: 8.25rem !important; /* 134px */
+    }
+  }
+  
+  .customMobileDataPickerSize {
+    @media (max-width: 1550px) {
+      width: 8.25rem !important; /* 134px */
+    }
+  }
+  
+  .card {
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0.5rem;
+    overflow: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .tableContainer {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling */
+    box-sizing: border-box;
+  }
+  
+  .tableHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.875rem; /* 46px */
+    padding-left: 1.375rem; /* 22px */
+    gap: 0.5rem; /* 80px */
+    border: none;
+    margin-bottom: 0rem;
+  }
+  
+  .tableHeader th {
+    font-weight: 700;
+    font-size: 0.875rem; /* 16px */
+    padding: 4px 16px;
+    border: none;
+    white-space: nowrap;
+    background-color: #f4f4f4;
+    @media (max-width: 1400px) {
+      padding: 1rem 0.625rem; /* 16px 10px*/
+      font-size: 0.875rem; /* 14px */
+    }
+  }
+  
+  .tableHeader th:first-child {
+    border-radius: 0.625rem 0rem 0rem 0.625rem; /* 10px 0 0 10px */
+  }
+  
+  .tableHeader th:last-child {
+    border-radius: 0rem 0.625rem 0.625rem 0rem; /* 0 10px 10px 0 */
+  }
+  
+  .snackbar {
+    position: absolute;
+    top: 100px;
+    right: 2rem; /* 32px */
+  }
+  
+  .snackbarAlert {
+    background-color: #b7f7c4;
+    border-radius: 8px;
+    color: #111d34;
+    align-items: center;
+  }
+  
+  .snackbarAlert button svg {
+    height: 1.875rem; /* 3px */
+    width: 1.875rem; /* 3px */
+  }
+  
+  .alertTitle {
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+    color: #111d34;
+    margin-right: 2.5rem; /* 40px */
+  }
+  
+  .alertSubtitle {
+    font-size: 0.75rem; /* 12px */
+    color: #111d34;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.875rem; /* 3px */
+  }
+  
+  .selected {
+    border-radius: 100px;
+    background: var(--Primary, #0068ff) !important;
+    color: #ffffff;
+  }
+  
+  .hiddenColumn {
+    display: none;
+  }
+  
+  .displayColumn {
+    display: table-cell;
+  }
+  
+  .hiddenButton {
+    display: none;
+    gap: 16px;
+  
+    @media (max-width: 1840px) {
+      display: flex;
+    }
+  }
+  
+  .hiddenFilters {
+    display: flex;
+  
+    @media (max-width: 1840px) {
+      display: none;
+    }
+  }
+  
+  .clearButton {
+    gap: 6px !important;
+    padding: 0px !important;
+  }
+  
+  .moreFiltersContainer {
+    margin-top: -10px;
+  }
+  
+  .moreButtonContainer {
+    @media (min-width: 1400px) and (max-width: 1500px) {
+      display: flex;
+      flex-direction: row;
+    }
+  
+    @media (min-width: 1650px) and (max-width: 1840px) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  .clearButtonResponsive {
+    position: absolute;
+    top: auto;
+  
+    @media (min-width: 1400px) and (max-width: 1500px) {
+      position: unset;
+      top: unset;
+      gap: 6px !important;
+      padding: 0px !important;
+    }
+  
+    @media (min-width: 1650px) and (max-width: 1840px) {
+      position: unset;
+      top: unset;
+      gap: 6px !important;
+      padding: 0px !important;
+    }
+  }
+  
+  .showMore {
+    gap: 6px !important;
+    padding: 0px !important;
+  }
+  
+  .innerFilterContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem; /* 12px */
+  }
+  
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .headerContainerButton {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  @media only screen and (max-width: 1400px) {
+    .container {
+      padding-left: 2.25rem;
+      height: 93vh;
+    }
+  
+    .customInputLabel {
+      line-height: 0.99rem;
+      margin: -3px;
+    }
+  
+    .customInput {
+      height: 2.5rem; /* 24px */
+    }
+  
+    .pageTitle {
+      font-size: 1.5rem; /* 24px */
+      margin-left: 2rem; /* 32px */
+    }
+  
+    .pageSubtitle {
+      font-size: 1rem; /* 16px */
+      margin-left: 2rem; /* 32px */
+    }
+  
+    .divider {
+      margin: 1.125rem 0; /* 18px 0*/
+    }
+  
+    .inputLabel {
+      font-size: 0.875em; /* 14px */
+      line-height: 0.999em;
+    }
+  
+    .filtersSection {
+      margin: 0rem;
+    }
+  
+    .tableHeader {
+      height: 2rem; /* 32px */
+    }
+  
+    .filters {
+      gap: 0.5rem; /* 12px */
+    }
+  }
