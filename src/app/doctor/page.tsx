@@ -1,22 +1,17 @@
 "use server";
 import { Filters, getAppointmentsForDoctor } from "./data";
-import AppointmentCard from "./AppointmentCard";
 import Appointment from "./Appointment";
 
-const DoctorPage = async ({ searchParams }: { searchParams: Filters }) => {
+export default async function DoctorPage({
+  searchParams
+}: {
+  searchParams: Partial<Filters>;
+}) {
   const appointments = await  getAppointmentsForDoctor({
     filters: { ...searchParams }
   });
-
+ console.log(appointments)
   return (
-    <div>
-    {appointments.length === 0 ? (
-      <p>No appointments available.</p>
-    ) : (
-        <Appointment appointments={appointments} />
-    )}
-  </div>
+    <Appointment appointments={appointments!} />
   );
 }
-
-export default DoctorPage;

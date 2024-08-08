@@ -1,15 +1,15 @@
-
+import { Card } from "@mui/material";
+import styles from "./appointment.module.css";
 
 const AppointmentCard = ({appointment}: {appointment: any}) => {
     return (
-      <div className="appointment-card">
+      <Card className={styles.appointmentCard}>
         <h3>Appointment with {appointment.patient.user.first_name} {appointment.patient.user.last_name}</h3>
         <p>Date: {new Date(appointment.appointment_date).toLocaleDateString()}</p>
-        <p>Time: {appointment.appointment_time}</p>
+        <p>At: {appointment.appointment_time}</p>
         <p>Age: {appointment.patient.age}</p>
-      </div>
+      </Card>
     );
   };
   
-  
-  export default AppointmentCard;
+export default AppointmentCard;

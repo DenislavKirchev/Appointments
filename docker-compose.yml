@@ -12,27 +12,3 @@ services:
       - "5432:5432"
 volumes:
   postgres:
-
-# version: '3.8'
-
-# services:
-#   app:
-#     build: 
-#       context: .
-#       dockerfile: Dockerfile
-#     ports:
-#       - "3000:3000"
-#     volumes:
-#       - .:/app
-#     environment:
-#       - NODE_ENV=development
-#     depends_on:
-#       - db
-#     command: npm run dev
-
-#   db:
-#     image: postgres:latest
-#     environment:
-#       POSTGRES_USER: username
-#       POSTGRES_PASSWORD: password
-#       POSTGRES_DB: database
