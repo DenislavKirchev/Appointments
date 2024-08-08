@@ -1,3 +1,4 @@
+import { auth } from "@/app/authOptions";
 import prisma from "@/lib/prisma";
 
 export interface Filters {
@@ -59,6 +60,20 @@ export async function getAllDoctors({ filters }: { filters: Filters }) {
     } catch (error) {
       console.log(error);
     }
+}
+
+export async function getPatientId() {
+  try {
+    const session: any = await auth();
+    const patient =  await prisma.patient.findFirst({
+      where: {
+        user_id: session.user.id
+      }
+    });
+    return patient!.id;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getAllCities() {

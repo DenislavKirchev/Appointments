@@ -10,7 +10,7 @@ export default async function DoctorPage({
   const appointments = await  getAppointmentsForDoctor({
     filters: { ...searchParams }
   });
- console.log(appointments)
+  
   return (
     <Appointment appointments={appointments!} />
   );

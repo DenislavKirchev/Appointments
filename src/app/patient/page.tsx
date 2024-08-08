@@ -1,19 +1,17 @@
 "use server";
-import { getAppointmentsForPatient } from "./data";
-import AppointmentCard from "./AppointmentCard";
+import { Filters, getAppointmentsForPatient } from "./data";
+import Appointment from "./Appointment";
 
-export default async function PatientPage() {
-  const appointments = await  getAppointmentsForPatient();
+export default async function PatientPage({
+  searchParams
+}: {
+  searchParams: Partial<Filters>;
+}) {
+  const appointments = await  getAppointmentsForPatient({
+    filters: { ...searchParams }
+  });
 
   return (
-    <div className="appointments-list">
-    {appointments.length === 0 ? (
-      <p>No appointments available.</p>
-    ) : (
-      appointments.map((appointment) => (
-        <AppointmentCard key={appointment.id} appointment={appointment} />
-      ))
-    )}
-  </div>
+    <Appointment appointments={appointments!} />
   );
 }

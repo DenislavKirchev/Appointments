@@ -1,0 +1,21 @@
+  .appointments {
+    display: flex;
+    justify-content: space-between;
+    margin: -16px;
+    flex-direction: row;
+  }
+
+  .appointmentCard {
+    margin: 16px; 
+    padding: 20px;
+  }
+
+  .pageTitle {
+    color: #111d34;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 20px;
+  }
+  

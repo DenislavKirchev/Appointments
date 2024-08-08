@@ -5,56 +5,65 @@ export interface Filters {
   startDate?: string;
 }
 
-export async function getAppointmentsForDoctor({ filters }: { filters: Filters }) {
-  const startDate = new Date(filters.startDate!);
-  console.log()
+export async function getAppointmentsForDoctor({
+  filters,
+}: {
+  filters: Filters;
+}) {
   try {
     const session: any = await auth();
-    let appointments;
-    let detailedAppointments;
-    if(filters.startDate){
-    appointments = await prisma.appointment.findMany({
+    const doctor =  await prisma.doctor.findFirst({
       where: {
-        doctor_id: session.user.id,
-        appointment_date: startDate
-      },
-    });
-    detailedAppointments = await Promise.all(
-      appointments.map(async (appointment) => {
-        const patient = await prisma.patient.findUnique({
-          where: { id: appointment.patient_id },
-          include: {
-            user: true,
-          },
-        });
-        return {
-          ...appointment,
-          patient,
-        };
-      })
-    );
-  } else {
-    appointments = await prisma.appointment.findMany({
-      where: {
-        doctor_id: session.user.id,
-      },
+        user_id: session.user.id
+      }
     });
 
-    detailedAppointments = await Promise.all(
-      appointments.map(async (appointment) => {
-        const patient = await prisma.patient.findUnique({
-          where: { id: appointment.patient_id },
-          include: {
-            user: true,
-          },
-        });
-        return {
-          ...appointment,
-          patient,
-        };
-      })
-    );
-  }
+    const startDate = new Date(filters.startDate!);
+    let appointments;
+    let detailedAppointments;
+    if (filters.startDate) {
+      appointments = await prisma.appointment.findMany({
+        where: {
+          doctor_id: doctor!.id,
+          appointment_date: startDate,
+        },
+      });
+      detailedAppointments = await Promise.all(
+        appointments.map(async (appointment) => {
+          const patient = await prisma.patient.findUnique({
+            where: { id: appointment.patient_id },
+            include: {
+              user: true,
+            },
+          });
+          return {
+            ...appointment,
+            patient,
+          };
+        })
+      );
+    } else {
+      appointments = await prisma.appointment.findMany({
+        where: {
+          doctor_id: doctor!.id,
+        },
+      });
+
+      detailedAppointments = await Promise.all(
+        appointments.map(async (appointment) => {
+          const patient = await prisma.patient.findUnique({
+            where: { id: appointment.patient_id },
+            include: {
+              user: true,
+            },
+          });
+          return {
+            ...appointment,
+            patient,
+          };
+        })
+      );
+    }
 
     return detailedAppointments;
   } catch (error) {
