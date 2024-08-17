@@ -81,7 +81,9 @@ const MakeAppointmentModal = ({
     if (formikMedicalSpecialistDetails.values.appointment_date) {
       const selectedDateAppointments = appointments.filter(
         appointment =>
-          appointment.appointment_date.split('T')[0] === formikMedicalSpecialistDetails.values.appointment_date
+          appointment.appointment_date.split('T')[0] 
+          === 
+          formikMedicalSpecialistDetails.values.appointment_date
       );
       setDisabledTimes(selectedDateAppointments.map(appointment => appointment!.appointment_time!));
     } else {
@@ -114,7 +116,11 @@ const MakeAppointmentModal = ({
   const handleSubmit = async () => {
     try {
       if (formikMedicalSpecialistDetails.isValid) {
-        await createAppointment(doctorId, formikMedicalSpecialistDetails.values.patientId, formikMedicalSpecialistDetails.values.appointment_date, formikMedicalSpecialistDetails.values.appointment_time);
+        await createAppointment(
+          doctorId, 
+          formikMedicalSpecialistDetails.values.patientId, 
+          formikMedicalSpecialistDetails.values.appointment_date, 
+          formikMedicalSpecialistDetails.values.appointment_time);
         onClose();
         formikMedicalSpecialistDetails.resetForm();
       }
@@ -165,8 +171,6 @@ const MakeAppointmentModal = ({
                   disabled={disabledTimes.includes(AppointmentHours[key as keyof typeof AppointmentHours])}
                 >
                   {AppointmentHours[key as keyof typeof AppointmentHours]}
-        
-        
                 </MenuItem>
               ))}
             </Select>

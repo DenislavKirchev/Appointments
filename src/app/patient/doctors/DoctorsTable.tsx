@@ -24,14 +24,7 @@ export const MedicalSpecialistsTable = ({
     <TableRow
       key={medicalSpecialist.id}
       className={styles.row}
-      sx={{
-        "&:last-child td, &:last-child th": {
-          border: 0
-        },
-        " &:first-of-type td, &:first-of-type th": {
-          borderTop: 0
-        }
-      }}
+      sx={{ "&:last-child td, &:last-child th": {border: 0}," &:first-of-type td, &:first-of-type th": {borderTop: 0}}}
     >
       <TableCell className={styles.id}>{medicalSpecialist.user_id}</TableCell>
       <TableCell className={styles.issueDate}>
@@ -43,7 +36,6 @@ export const MedicalSpecialistsTable = ({
       {medicalSpecialist.user.city.name}
       </TableCell>
       <TableCell className={styles.localisation}>{medicalSpecialist.speciality.name}</TableCell>
-      
       <TableCell className={styles.patient}>{medicalSpecialist.user.email}</TableCell>
       <TableCell className={styles.patient}>{medicalSpecialist.user.phone_number}</TableCell>
       <TableCell className={styles.buttonsCell} align={"right"}>
@@ -52,7 +44,12 @@ export const MedicalSpecialistsTable = ({
       </Button>
       </TableCell>
       {isOpen && (
-          <MakeAppointmentModal patientId={patientId} doctorId={medicalSpecialist.user_id} isOpen={isOpen} onClose={closeCreateMedicalSpecialistModal} />
+          <MakeAppointmentModal 
+          patientId={patientId} 
+          doctorId={medicalSpecialist.user_id} 
+          isOpen={isOpen} 
+          onClose={closeCreateMedicalSpecialistModal} 
+          />
       )}
     </TableRow>
   );

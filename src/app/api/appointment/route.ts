@@ -10,7 +10,7 @@ export async function GET(request: Request) {
         doctor_id: Number(queryParams.doctorId)
       }
     });
-    console.log(appointments)
+    
     return new Response(JSON.stringify(appointments));
   } catch (error) {
     console.error("Error processing GET request:", error);

@@ -13,6 +13,7 @@ import {
   IconButton,
   InputAdornment,
   TextField,
+  Card,
 } from "@mui/material";
 import styles from "./doctorData.module.css";
 import Visibility from "@mui/icons-material/Visibility";
@@ -95,7 +96,8 @@ const DoctorData = ({ cities, hospitals, doctorData }: DoctorDataProps) => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <Typography>Update my information</Typography>
+      <Typography className={styles.pageTitle}>Update my information</Typography>
+      <Card className={styles.appointmentCard}>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <CustomTextInput
@@ -241,9 +243,10 @@ const DoctorData = ({ cities, hospitals, doctorData }: DoctorDataProps) => {
         </Grid>
       </Grid>
 
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" className={styles.continueButton}>
         Submit
       </Button>
+      </Card>
     </form>
   );
 };

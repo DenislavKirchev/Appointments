@@ -5,7 +5,6 @@ import { IPatientFormik } from "./PatientData";
 
 export async function updatePatient(patientData: IPatientFormik) {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const session: any = await auth();
     const user = await prisma.user.update({
         where: {

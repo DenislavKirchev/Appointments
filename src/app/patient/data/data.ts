@@ -3,7 +3,6 @@ import { auth } from "../../authOptions";
 
 export async function getPatientData() {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const session: any = await auth();
     const patientData = await prisma.patient.findFirst({
       where: {

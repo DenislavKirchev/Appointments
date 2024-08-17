@@ -35,7 +35,6 @@ export const MedicalSpecialists = ({
     specialities: any;
     hospitals: any;
   }) => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
     const [name, setName] = useState("");
     const [filters, setFilters] = useState({
       first_name: "",
@@ -54,7 +53,6 @@ export const MedicalSpecialists = ({
   
     const updateFilters = () => {
       const [firstName, secondName] = name.split(" ");
-  
       if (name.length >= 3) {
         if (firstName && secondName) {
           setFilters({
@@ -70,7 +68,6 @@ export const MedicalSpecialists = ({
           });
         }
       }
-  
       if (name === "") {
         setFilters({
           ...filters,
@@ -80,19 +77,11 @@ export const MedicalSpecialists = ({
       }
     };
   
-    const keyToValueFiltersTag = (key: string, value: string) => {
-    //   if (key === "status") {
-    //     return (keyToTextUserStatus as { [key: string]: string })[value] as string;
-    //   }
-  
-      return value;
-    };
-  
     const updateURL = () => {
       if (filters.first_name === "" && filters.last_name === "") {
         setName("");
       }
-  
+
       const query = new URLSearchParams({ ...filters }).toString();
       router.push(query ? `?${query}` : "/");
     };
@@ -104,15 +93,7 @@ export const MedicalSpecialists = ({
     useEffect(() => {
       updateURL();
     }, [filters]);
-  
-    const openCreateMedicalSpecialistModal = () => {
-      setIsOpen(true);
-    };
-  
-    const closeCreateMedicalSpecialistModal = () => {
-      setIsOpen(false);
-    };
-  
+
     return (
       <Stack className={styles.container}>
         <Grid className={styles.titleSection}>
@@ -178,7 +159,7 @@ export const MedicalSpecialists = ({
           />
           <Autocomplete
             disablePortal
-            id="speciality-autocomplete"
+            id="cities-autocomplete"
             options={cities}
             getOptionLabel={(option) => option.name}
             value={cities.find((city: any) => city.id === filters.city) || null}
@@ -214,7 +195,6 @@ export const MedicalSpecialists = ({
             value ? (
               <Box key={key} className={styles.selectedFilter}>
                 <Typography className={styles.selectedFilterText}>
-                  {keyToValueFiltersTag(key, value)}
                 </Typography>
                 <IconButton
                   onClick={() => {

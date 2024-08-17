@@ -9,7 +9,7 @@ export default async function PatientDataPage() {
 
   return (
     <Grid>
-      <PatientData patientData={patientData!} cities={cities!}/>
+      <PatientData patientData={patientData} cities={cities!}/>
     </Grid>
   );
 }

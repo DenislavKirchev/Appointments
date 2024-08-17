@@ -7,7 +7,6 @@ interface RequestBody {
 }
 export async function POST(request: Request) {
   const body: RequestBody = await request.json();
-  console.log("login body", body);
 
   const user = await prisma.user.findFirst({
     where: {
@@ -15,11 +14,7 @@ export async function POST(request: Request) {
     }
   });
 
-  console.log("user", user);
-
   if (user && (body.password === user.password)) {
-    console.log("password match");
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...userWithoutPass } = user;
     const accessToken = signJwtAccessToken(userWithoutPass);
     const result = {

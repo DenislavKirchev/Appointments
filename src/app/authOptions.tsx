@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import CredentialsProvider from "next-auth/providers/credentials";
 import NextAuth from "next-auth";
 
-console.log("authOptions", process.env.NEXTAUTH_URL);
 export const {
   handlers: { GET, POST },
   auth,

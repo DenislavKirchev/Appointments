@@ -11,8 +11,8 @@ import * as yup from "yup";
 import { useRouter } from "next/navigation";
 
 const validationSchema = yup.object({
-  email: yup.string().required("Полето е задължително"),
-  password: yup.string().required("Полето е задължително")
+  email: yup.string().required("required"),
+  password: yup.string().required("required")
 });
 
 const SigninForm = () => {
@@ -24,12 +24,9 @@ const SigninForm = () => {
       password: ""
     },
     validationSchema: validationSchema,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSubmit: async (data: any) => {
       await signinAction(data);
     },
-    validateOnMount: true,
-    enableReinitialize: true
   });
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -43,7 +40,7 @@ const SigninForm = () => {
           <Grid className={styles.innerContainer}>
             <Typography className={styles.title}>My Doctor</Typography>
             <Typography className={styles.subTitle}>
-              Enter your credentials to login to the My Doctor Platform
+              Please enter your credentials
             </Typography>
             <Grid className={styles.divider} />
             <Typography className={styles.modalLabel}>Email</Typography>

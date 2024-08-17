@@ -1,6 +1,6 @@
 "use server";
 import Grid from "@mui/material/Grid";
-import { getDoctorData, getAllCities, getAllHospitals, getAllSpecialities } from "./data";
+import { getDoctorData, getAllCities, getAllHospitals } from "./data";
 import DoctorData from "./DoctorData";
 
 export default async function PatientDataPage() {
@@ -10,7 +10,11 @@ export default async function PatientDataPage() {
 
   return (
     <Grid>
-      <DoctorData doctorData={doctorData!} cities={cities!} hospitals={hospitals!}/>
+      <DoctorData
+        doctorData={doctorData!}
+        cities={cities!}
+        hospitals={hospitals!}
+      />
     </Grid>
   );
 }

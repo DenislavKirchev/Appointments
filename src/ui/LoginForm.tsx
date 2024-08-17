@@ -5,15 +5,14 @@ import styles from "./signin-page.module.css";
 import React from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { signinAction } from "@/lib/actions";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
 import { createPatient } from "@/app/login/actions";
 
 const validationSchema = yup.object({
-  email: yup.string().required("Полето е задължително"),
-  password: yup.string().required("Полето е задължително")
+  email: yup.string().required("required"),
+  password: yup.string().required("required")
 });
 
 const LoginForm = () => {
@@ -25,12 +24,9 @@ const LoginForm = () => {
       password: ""
     },
     validationSchema: validationSchema,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onSubmit: async (data: any) => {
       await createPatient(data);
-    },
-    validateOnMount: true,
-    enableReinitialize: true
+    }
   });
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
