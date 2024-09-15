@@ -77,11 +77,7 @@ export const MedicalSpecialists = ({
       }
     };
   
-    const keyToValueFiltersTag = (key: string, value: string) => {
-    //   if (key === "status") {
-    //     return (keyToTextUserStatus as { [key: string]: string })[value] as string;
-    //   }
-  
+    const keyToValueFiltersTag = (key: string, value: string) => {  
       return value;
     };
   

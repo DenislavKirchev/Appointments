@@ -20,6 +20,9 @@ export const SideBar = () => {
         <div className={styles.nav}>
           <Link href={"/super-admin/speciality"}>Specialities</Link>
         </div>
+        <div className={styles.nav}>
+          <Link href={"/super-admin/city"}>Cities</Link>
+        </div>
       </div>
 
       <div>

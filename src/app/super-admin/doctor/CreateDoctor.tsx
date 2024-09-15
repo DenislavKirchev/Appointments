@@ -16,20 +16,6 @@ import {
 } from "@mui/material";
 import styles from "./createDoctor.module.css";
 
-const validationSchema = yup.object({
-  email: yup.string().email("Invalid email").required("Email is required"),
-  password: yup.string().required("Password is required"),
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  phoneNumber: yup.string().required("Phone number is required"),
-  cityId: yup
-    .number()
-    .required("City is required")
-    .notOneOf([0], "Please select a city"),
-  hospitalId: yup.number().required('Hospital is required').notOneOf([0], 'Please select a hospital'),
-  specialityId: yup.number().required('Speciality is required').notOneOf([0], 'Please select a speciality'),
-});
-
 interface ICity {
   id: number;
   name: string | null;
@@ -54,6 +40,20 @@ interface IMedicalSpecialistForm {
   hospitals: IHospital[];
   specialities: ISpeciality[];
 }
+
+const validationSchema = yup.object({
+  email: yup.string().email("Invalid email").required("Email is required"),
+  password: yup.string().required("Password is required"),
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  phoneNumber: yup.string().required("Phone number is required"),
+  cityId: yup
+    .number()
+    .required("City is required")
+    .notOneOf([0], "Please select a city"),
+  hospitalId: yup.number().required('Hospital is required').notOneOf([0], 'Please select a hospital'),
+  specialityId: yup.number().required('Speciality is required').notOneOf([0], 'Please select a speciality'),
+});
 
 const MedicalSpecialistForm = ({
   isOpen,
@@ -95,7 +95,7 @@ const MedicalSpecialistForm = ({
     <Modal open={isOpen} onClose={onClose} className={styles.modal}>
       <Grid className={styles.modalContainer}>
     <form onSubmit={formik.handleSubmit}>
-      <Typography>Create doctor</Typography>
+      <Typography className={styles.modalTitle}>Create doctor</Typography>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <CustomTextInput
@@ -268,7 +268,7 @@ const MedicalSpecialistForm = ({
         </Grid>
       </Grid>
 
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" className={styles.continueButton}>
         Submit
       </Button>
     </form>

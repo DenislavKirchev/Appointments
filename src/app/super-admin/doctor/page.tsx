@@ -8,7 +8,6 @@ export default async function DoctorPage({
 }: {
   searchParams: Partial<Filters>;
 }) {
-
   const doctors = await getAllDoctors({
     filters: { ...searchParams }
   });
