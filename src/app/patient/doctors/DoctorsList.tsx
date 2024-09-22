@@ -5,8 +5,6 @@ import {
   Divider,
   Grid,
   IconButton,
-  Pagination,
-  PaginationItem,
   Stack,
   Table,
   TableBody,
@@ -15,7 +13,6 @@ import {
   TableRow,
   TextField
 } from "@mui/material";
-import Image from "next/image";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/navigation";
