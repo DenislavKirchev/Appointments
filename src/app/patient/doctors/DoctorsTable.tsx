@@ -46,7 +46,7 @@ export const MedicalSpecialistsTable = ({
       {isOpen && (
           <MakeAppointmentModal 
           patientId={patientId} 
-          doctorId={medicalSpecialist.user_id} 
+          doctorId={medicalSpecialist.id} 
           isOpen={isOpen} 
           onClose={closeCreateMedicalSpecialistModal} 
           />
