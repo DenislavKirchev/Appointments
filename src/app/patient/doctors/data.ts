@@ -115,7 +115,5 @@ export async function getAppointmentsForDoctor(doctorId: number) {
   } catch (error) {
     console.log(error);
     throw error;
-  } finally {
-    await prisma.$disconnect();
-  }
+  } 
 }
